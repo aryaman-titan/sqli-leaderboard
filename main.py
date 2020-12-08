@@ -11,7 +11,6 @@ def leaderboard():
     if rows == []:
         cur.execute("SELECT * FROM 'leaders' ORDER BY score DESC;")
         rows=cur.fetchall()
-    print(rows)
     return render_template("template.html",rows=rows)
 
 @app.route("/search", methods=["POST"])

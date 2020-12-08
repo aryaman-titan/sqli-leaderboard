@@ -20,9 +20,9 @@ body, html {
 }
 
 .search:hover > .search-txt{
-    width: 180px;
+    width: 450px;
     padding: 0 10px;
-    color: wheat;
+    color: black;
     font-family: 'Pangolin', cursive;
 }
 .search:hover > .search-btn{
@@ -46,7 +46,7 @@ body, html {
     outline: none;
     float: left;
     padding: 0;
-    color:wheat ;
+    color: black ;
     font-size: 16px;
     transition: ease-in 0.4s;
     line-height: 40px;
