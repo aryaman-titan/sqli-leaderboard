@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CTF Leaderboard</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    <table border = 1>
+      <thead>
+         <td>TEAM_NAME</td>
+         <td>SCORE</td>
+      </thead>
+      
+      {% for row in rows %}
+         <tr>
+            <td>{{row["team"]}}</td>
+            <td>{{row["score"]}}</td>
+         </tr>
+      {% endfor %}
+   </table>
+    {% endblock %}
+  </body>
+</html>
+

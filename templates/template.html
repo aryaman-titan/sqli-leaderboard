@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CTF Leaderboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">    
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="center">
+    
+    <form action="{{ url_for('search') }}" id="my_form" method="POST">
+        <div class="search">
+            <input  class="search-txt" type="text" name="payload" placeholder="Type to search">
+            <!-- <input type= "submit" value = "Submit" /><br> -->
+            <a class="search-btn" href="javascript:{}" onclick="document.getElementById('my_form').submit(); return false;" >
+               <i class="fas fa-search"></i>
+            </a>
+        </div>
+    </form>
+    {% block content %}
+
+  <div class="top3">
+
+    <div class="two item">
+      <div class="pos">
+        2
+      </div>
+      {%if 'InfoSec' in rows[1]["team"] %}
+        <div class="pic" style="background-image: url(&#39;https://infoseciitr.in/img/avatar-icon.jpg&#39;)"></div>
+      {% else %}
+        <div class="pic" style="background-image: url(&#39;https://cdn.icon-icons.com/icons2/1857/PNG/512/hacker_117746.png&#39;)"></div>
+      {% endif %}
+        <div class="name">
+        {{ rows[1]["team"] }}
+      </div>
+      <div class="score">
+        {{ rows[1]["score"] }}
+      </div>
+    </div>
+    <div class="one item">
+      <div class="pos">
+        1
+      </div>
+      {%if 'InfoSec' in rows[0]["team"] %}
+        <div class="pic" style="background-image: url(&#39;https://infoseciitr.in/img/avatar-icon.jpg&#39;)"></div>
+      {% else %}
+        <div class="pic" style="background-image: url(&#39;https://cdn.icon-icons.com/icons2/1857/PNG/512/hacker_117746.png&#39;)"></div>
+      {% endif %}
+      <div class="name">
+        {{ rows[0]["team"] }}
+      </div>
+      <div class="score">
+        {{ rows[0]["score"] }}
+      </div>
+    </div>
+    <div class="three item">
+      <div class="pos">
+        3
+      </div>
+      {%if 'InfoSec' in rows[2]["team"] %}
+        <div class="pic" style="background-image: url(&#39;https://infoseciitr.in/img/avatar-icon.jpg&#39;)"></div>
+      {% else %}
+        <div class="pic" style="background-image: url(&#39;https://cdn.icon-icons.com/icons2/1857/PNG/512/hacker_117746.png&#39;)"></div>
+      {% endif %}
+      <div class="name">
+        {{ rows[2]["team"] }}
+      </div>
+      <div class="score">
+        {{ rows[2]["score"] }}  
+      </div>
+    </div>
+  </div>
+  <div class="list">
+    {% for i in range(3,10) %}
+    <div class="item">
+      <div class="pos">
+        {{i+1}}
+      </div>
+      {%if 'InfoSec' in rows[i]["team"] %}
+        <div class="pic" style="background-image: url(&#39;https://infoseciitr.in/img/avatar-icon.jpg&#39;)"></div>
+      {% else %}
+        <div class="pic" style="background-image: url(&#39;https://cdn.icon-icons.com/icons2/1857/PNG/512/hacker_117746.png&#39;)"></div>
+      {% endif %}
+      <div class="name">
+        {{ rows[i]["team"] }}
+      </div>
+      <div class="score">
+        {{ rows[i]["score"] }}
+      </div>
+    </div>
+    {% endfor %}
+    {% endblock %}
+    
+  </div>
+
+</div>
+<!-- partial -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+</body>
+</html>
