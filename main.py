@@ -25,4 +25,4 @@ def search():
     
 if __name__ == '__main__':
     app.run(debug=True)
-#payload=UPDATE leaders SET score = 969691337 where team = 'InfoSecIITR'
+
